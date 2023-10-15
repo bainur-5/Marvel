@@ -1,0 +1,18 @@
+.character_cont {
+    width: 100%;
+    height: 400px;
+    background: '../../../assets/img/pxfuel.jpg' center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.character_card {
+    width: 150px;
+    height: 300px;
+    background-color: red;
+    position: relative; /* Определяем радиус скругления углов: верхний левый, нижний левый, нижний правый, верхний правый */
+    
+    clip-path: polygon(70% 0, 100% 50%, 70% 100%, 0 100%, 30% 50%, 0 0);
+}
+  

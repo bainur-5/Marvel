@@ -1,0 +1,97 @@
+.root {
+    display: flex;
+    gap: 5px;
+}
+
+.character_card {
+    position: relative;
+    width: 150px;
+    height: 200px;
+    background-color: rgba(128, 128, 128, 0.493);
+    transition: 0.5s;
+
+    &:hover .character_img {
+        width: 120%;
+        height: 120%;
+    }
+    
+    &:hover .character_img::after{
+        width: 50%;
+    }
+    &:hover .character_img::before{
+        width: 50%;
+    }
+    &:hover .character_title {
+        bottom: 0;
+        display: block;
+        animation: character 0.5s backwards;
+    }
+    
+}
+
+.character_img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(210, 105, 30, 0.219);
+    transition: 0.5s;
+    z-index: 2;
+}
+.character_img::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    transition: .5s;
+}
+
+.character_img::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    transition: .5s;
+}
+
+.character_title {
+    position: absolute;
+    display: none;
+    width: 100%;
+    bottom: -3rem;
+    z-index: 3;
+    transition: 0.5s;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: white;
+    animation: character 0.5s backwards;
+}
+
+@-webkit-keyframes character {
+    from {
+        bottom: -3rem;
+    }
+
+    to {
+        bottom: 0;
+    }
+}
+
+@keyframes character {
+    from {
+        bottom: -1.5rem;
+    }
+
+    to {
+        bottom: 0;
+    }
+}
