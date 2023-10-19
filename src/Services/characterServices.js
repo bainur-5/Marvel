@@ -4,22 +4,31 @@ import { LIMMIT, apiSlice, bashHash, endApi, publicKey } from "../api/api";
 export const characterServices = apiSlice.injectEndpoints({
     endpoints: (build) => ({
         getCharacterAll: build.query({
-            query: ({offset, searchString}) => ({
+            query: ({offset, searchString, limit}) => ({
                     url: 'characters',
                     params: {            
-                        limit: LIMMIT,
+                        limit: limit ? limit : LIMMIT,
                         offset: offset,
                         nameStartsWith: searchString,
+                        orderBy: '-modified',
                         ts: 1,
                         apikey: publicKey,
                         hash: bashHash
                     }
                 }),
-            transformResponse: (res) => res,
+            transformResponse: (res) => res.data.results,
             providesTags: ['characterServices'],
         }),
         getCharacterID: build.query({
-            query: (characterID) => `characters/${characterID}?${endApi}`,
+            query: ({characterID}) => ({
+               url: `characters/${characterID}`,
+               params: {
+                ts: 1,
+                apikey: publicKey,
+                hash: bashHash
+            }
+            }),
+            transformResponse: (res) => res.data.results[0],
             providesTags: ['characterServices']
         }),
         getCharacterIdComics: build.query({

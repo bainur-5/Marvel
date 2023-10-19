@@ -7,7 +7,8 @@ const Header = () => {
                 <li>
                     <NavLink
                         className={cls.linkLogo}
-                    >Marvel
+                    >
+                        <img src="Marvel_Logo.svg.png" alt="Logo" />
                     </NavLink>
                     </li>
             </ol>

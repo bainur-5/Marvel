@@ -10,6 +10,6 @@ export const endApi = `ts=1&apikey=${publicKey}&hash=${bashHash}`
 export const apiSlice = createApi({
     reducerPath: 'api',
     baseQuery: fetchBaseQuery({baseUrl: 'http://gateway.marvel.com/v1/public/'}),
-    tagTypes: ['characterServices'],
+    tagTypes: ['characterServices', 'comicsServices'],
     endpoints: builder => ({})
 })

@@ -1,22 +1,15 @@
 import cls from './card.module.scss'
-const Character = () => {
+const Character = ({ name, img, id }) => {
 
     return (
-        <div className={cls.root}>
-            <div className={cls.character_card}>
-                <div className={cls.character_img}>
-                </div>
-                <p className={cls.character_title}>
-                    Iron Man
-                </p>
+        <div className={cls.character_card} key={id}>
+            <div className={cls.character_img}
+                style={{ backgroundImage: `url(${img})`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}
+            >
             </div>
-            <div className={cls.character_card}>
-                <div className={cls.character_img}>
-                </div>
-                <p className={cls.character_title}>
-                    Iron Man
-                </p>
-            </div>
+            <p className={cls.character_title}>
+                {name}
+            </p>
         </div>
 
     )
