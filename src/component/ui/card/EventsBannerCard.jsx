@@ -1,8 +1,8 @@
 import cls from './card.module.scss'
-const Character = ({nameClass, name, img, id,  }) => {
+const EventsBannerCard = ({ name, img, id }) => {
 
     return (
-        <div className={cls[nameClass]} key={id}>
+        <div className={cls.eventsCard} key={id}>
             <div className={cls.character_img}
                 style={{ backgroundImage: `url(${img})`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}
             >
@@ -14,4 +14,4 @@ const Character = ({nameClass, name, img, id,  }) => {
 
     )
 }
-export default Character
+export default EventsBannerCard

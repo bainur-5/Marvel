@@ -3,12 +3,12 @@ import { LIMMIT, apiSlice, bashHash, publicKey } from "../api/api";
 export const comicsServices = apiSlice.injectEndpoints({
     endpoints: (build) =>({
         getComicsAll: build.query({
-            query: ({limit, offset, searchComics}) => ({
+            query: ({limit, offset, search}) => ({
                 url: 'comics',
                 params: {
                     limit: limit ? limit : LIMMIT,
                     offset: offset,              
-                    titleStartsWith: searchComics,   
+                    titleStartsWith: search,   
                     orderBy: '-modified',  
                     ts: 1,
                     apikey: publicKey,

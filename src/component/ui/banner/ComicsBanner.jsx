@@ -1,9 +1,8 @@
 import { useGetComicsAllQuery } from '../../../Services/comicsServices'
 import cls from './banner.module.scss'
 
-const ComicsBanner = ({ }) => {
+const ComicsBanner = () => {
     const { data } = useGetComicsAllQuery({ offset: 0, limit: 5 })
-    console.log(data);
 
     return (
         <div className={cls.rootComics}>

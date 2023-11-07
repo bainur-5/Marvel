@@ -1,27 +1,26 @@
 import { LIMMIT, apiSlice, bashHash, publicKey } from "../api/api";
 
-export const seriesServices = apiSlice.injectEndpoints({
+export const creatorsServices = apiSlice.injectEndpoints({
     endpoints: (build) => ({
-        getSeriesAll: build.query({
+        getCreatorsAll: build.query({
             query: ({ search, limit, offset }) => ({
-                url: 'series',
+                url: 'creators',
                 params: {
                     limit: limit ? limit : LIMMIT   ,
                     offset: offset,
-                    titleStartsWith: search,
-                    seriesType: 'ongoing',
-                    orderBy: '-modified',
+                    nameStartsWith: search,
+                    orderBy: 'modified',
                     ts: 1,
                     apikey: publicKey,
                     hash: bashHash
                 }
             }),
             transformResponse: (res) => res.data.results,            
-            providesTags: ['seriesServices'],
+            providesTags: ['creatorsServices'],
         })
     })
 })
 
 export const {
-    useGetSeriesAllQuery
-} = seriesServices
+    useGetCreatorsAllQuery  
+} = creatorsServices

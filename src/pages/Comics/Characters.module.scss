@@ -1,0 +1,14 @@
+.root{
+    padding: 0;
+    margin: 0;
+    background-color: black;
+    min-height: 100vh;
+    .contCards{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 1cap 2.5cap;
+        gap: 1rem;
+    }
+}
