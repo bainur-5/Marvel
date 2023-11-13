@@ -1,18 +1,16 @@
 import { configureStore,  } from "@reduxjs/toolkit";
-import arraySlice from "./idSlice/idSlice";
 import { apiSlice } from "../api/api";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { combineReducers } from "redux";
+import idSlice from "./idSlice/idSlice";
 
 const rootReducer = combineReducers({
-
+    idSlice,
+    [apiSlice.reducerPath]: apiSlice.reducer,
 })
 
 export const store = configureStore({
-    reducer: {
-        arraySlice,
-    [apiSlice.reducerPath]: apiSlice.reducer,
-    },
+    reducer: rootReducer,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware)
 })
 

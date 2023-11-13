@@ -51,7 +51,7 @@ export const characterServices = apiSlice.injectEndpoints({
 })
 
 export const {
-    useGetCharacterAllQuery,
+      useGetCharacterAllQuery,
     useGetCharacterIDQuery,
     useGetCharacterIdComicsQuery,
     useGetCharacterIdEventsQuery,
