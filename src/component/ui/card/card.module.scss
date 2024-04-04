@@ -1,124 +1,140 @@
 .root {
-    display: flex;
-    gap: 5px;
+  display: flex;
+  gap: 5px;
 }
 // min-width: 200px;
-.character_card{    
-    width: 250px !important;
-    height: 300px !important;
-    min-width: 250px;
+.character_card {
+  width: 250px !important;
+  height: 300px !important;
+  min-width: 250px;
 }
-.comics_card{
-    width: 200px !important;
-    height: 300px !important;
-    min-width: 200px;
+.comics_card {
+  width: 200px !important;
+  height: 300px !important;
+  min-width: 200px;
 }
-.events_card{
-    width: 200px !important;
-    height: 300px !important;
-    min-width: 300px;
+.events_card {
+  width: 200px !important;
+  height: 300px !important;
+  min-width: 300px;
 }
-.character_card, .comics_card, .events_card {
-    position: relative;
-    background-color: rgba(128, 128, 128, 0.493);
-    transition: 0.5s;
-    cursor: pointer;
-    &:hover .character_img {
-        width: 110%;
-        height: 110%;
-        z-index: 9;
-    }
-    
-    &:hover .character_img::after{
-        width: 50%;
-    }
-    &:hover .character_img::before{
-        width: 50%;
-    }
-    &:hover .character_title {
-        bottom: 0;
-        display: block;
-        animation: character 0.5s backwards;
-        z-index: 9;
-    }
-    
+.character_card,
+.comics_card,
+.events_card {
+  position: relative;
+  background-color: rgba(128, 128, 128, 0.493);
+  transition: 0.5s;
+  cursor: pointer;
+  &:hover .character_img {
+    width: 110%;
+    height: 110%;
+    z-index: 9;
+  }
+
+  &:hover .character_img::after {
+    width: 50%;
+  }
+  &:hover .character_img::before {
+    width: 50%;
+  }
+  &:hover .character_title {
+    bottom: 0;
+    display: block;
+    animation: character 0.5s backwards;
+    z-index: 9;
+  }
 }
 
 .character_img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    width: 100%;
-    height: 100%;
-    background-color: rgba(210, 105, 30, 0.219);
-    transition: 0.5s;
-    z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(210, 105, 30, 0.219);
+  transition: 0.5s;
+  z-index: 2;
 }
-.character_img::after{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.25);
-    transition: .5s;
+.character_img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  transition: 0.5s;
 }
 
-.character_img::before{
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 0;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.25);
-    transition: .5s;
+.character_img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  transition: 0.5s;
 }
 
 .character_title {
-    position: absolute;
-    display: none;
-    width: 100%;
-    bottom: -3rem;
-    z-index: 3;
-    transition: 0.5s;
-    text-align: center;
-    font-weight: 600;
-    font-size: 1.25rem;
-    color: white;
-    animation: character 0.5s backwards;
+  position: absolute;
+  display: none;
+  width: 100%;
+  bottom: -3rem;
+  z-index: 3;
+  transition: 0.5s;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: white;
+  animation: character 0.5s backwards;
 }
 
 @-webkit-keyframes character {
-    from {
-        bottom: -3rem;
-    }
+  from {
+    bottom: -3rem;
+  }
 
-    to {
-        bottom: 0;
-    }
+  to {
+    bottom: 0;
+  }
 }
 
 @keyframes character {
-    from {
-        bottom: -1.5rem;
-    }
+  from {
+    bottom: -1.5rem;
+  }
 
-    to {
-        bottom: 0;
-    }
+  to {
+    bottom: 0;
+  }
 }
 
 // events
-.eventsCard{
-    position: relative;
-    width: 150px;
-    height: 200px;
-    background-color: rgba(128, 128, 128, 0.493);
-    transition: 0.5s;
-    cursor: pointer;
-    z-index: 4;    
-    transform: skewX(-20deg);
+.eventsCard {
+  position: relative;
+  width: 150px;
+  height: 200px;
+  background-color: rgba(128, 128, 128, 0.493);
+  transition: 0.5s;
+  cursor: pointer;
+  z-index: 4;
+  transform: skewX(-20deg);
+  &:hover {
+    transform: skewX(-5deg);
+  }
+  &:hover .character_img::after {
+    width: 50%;
+  }
+  &:hover .character_img::before {
+    width: 50%;
+  }
+  &:hover .character_title {
+    bottom: 0;
+    display: block;
+    animation: character 0.5s backwards;
+    z-index: 9;
+  }
 }

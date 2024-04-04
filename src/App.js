@@ -4,10 +4,10 @@ import AppRoute from "./Router/AppRoute";
 
 function App() {
     return (
-        <div>
+        <>
             <Header/>
             <AppRoute/>
-        </div>
+        </>
     );
 }
 
