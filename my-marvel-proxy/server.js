@@ -3,17 +3,14 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const app = express();
 
-// Настройка прокси для обработки запросов к Marvel API
-app.use('/marvel-api', createProxyMiddleware({
-  target: 'http://gateway.marvel.com',
-  changeOrigin: true,
-  pathRewrite: {
-    '^/marvel-api': '/v1/public' // Удаляет /marvel-api из URL и использует остальную часть в запросе к Marvel API
-  }
+// Проксирование запросов к API Marvel
+app.use('/v1/public', createProxyMiddleware({
+    target: 'http://gateway.marvel.com',
+    changeOrigin: true,
 }));
 
-// Запуск сервера на порте 3001
-const PORT = process.env.PORT || 3001;
+// Запуск сервера
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Прокси-сервер запущен на порту ${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });
