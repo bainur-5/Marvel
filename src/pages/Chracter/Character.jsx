@@ -12,7 +12,7 @@ const Character = () => {
     if (!id) {
       navigate("/characters");
     }
-  }, []);
+  }, [id, navigate]);
   return (
     <div className={cls.root}>
       {isLoading ? (

@@ -12,7 +12,7 @@ const AboutComics = () => {
     if (!id) {
       navigate("/comics");
     }
-  }, []);
+  }, [id, navigate]);
   return (
     <div className={cls.root}>
       {isLoading ? (
