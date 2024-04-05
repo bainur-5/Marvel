@@ -1,17 +1,19 @@
-.root{
-    padding: 0;
-    margin: 0;
-    background-color: black;
-    min-height: 100vh;
-    .contCards{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        padding: 1cap 2.5cap;
-        gap: 1rem;
-    }
-    
+.root {
+  padding: 0;
+  margin: 0;
+  background-color: black;
+  min-height: 100vh;
+  max-width: 1500px;
+  margin: 0 auto;
+  .contCards {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1cap 2.5cap;
+    gap: 1rem;
+  }
+
   .pacination_part {
     display: flex;
     gap: 2rem;

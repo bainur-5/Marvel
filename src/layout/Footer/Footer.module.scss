@@ -3,12 +3,16 @@
   display: flex;
   justify-content: space-between;
   align-items: start;
+  flex-wrap: wrap;
   padding: 1rem 2rem;
   padding-top: 5rem;
-  border-top: 1px solid white;
+  max-width: 1500px;
+  margin: 0 auto;
   .navigate_cont {
     display: flex;
+    flex-wrap: wrap;
     gap: 100px;
+    padding-bottom: 1rem;
     .list {
       list-style: none;
       display: grid;
@@ -38,6 +42,7 @@
       display: flex;
       align-items: center;
       list-style: none;
+      flex-wrap: wrap;
       gap: 35px;
       padding: 0;
       li {
@@ -61,4 +66,7 @@
   .contact_container {
     fill: white !important;
   }
+}
+.borderTop {
+  border-top: 1px solid white;
 }

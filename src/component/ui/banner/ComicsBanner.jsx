@@ -3,7 +3,7 @@ import { useGetComicsAllQuery } from "../../../Services/comicsServices";
 import cls from "./banner.module.scss";
 import { useNavigate } from "react-router-dom";
 import { comicsID } from "../../../Redux/idSlice/idSlice";
-
+import Logo from "../../../assets/img/Logo.svg";
 const ComicsBanner = () => {
   const { data } = useGetComicsAllQuery({ offset: 0, limit: 5 });
   const navigate = useNavigate();
@@ -17,11 +17,13 @@ const ComicsBanner = () => {
   return (
     <div className={cls.rootComics}>
       <div className={cls.cont_comics_text}>
-        <div className={cls.logo_comics}>
-          <img src="Marvel_Logo.svg.png" alt="Marvel" />
-        </div>
-        <div className={cls.text_comics}>
-          <p>New Marvel Comics</p>
+        <div className={cls.cont_text}>
+          <div className={cls.logo_comics}>
+            <img src={Logo} alt="Marvel" />
+          </div>
+          <div className={cls.text_comics}>
+            <p>New Marvel Comics</p>
+          </div>
         </div>
       </div>
       <div className={cls.cont_comics}>
