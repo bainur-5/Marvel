@@ -2,20 +2,17 @@
   display: flex;
   gap: 5px;
 }
-// min-width: 200px;
 .character_card {
-  width: 250px !important;
-  height: 300px !important;
-  min-width: 250px;
+  width: 250px;
+  height: 300px;
 }
 .comics_card {
-  width: 200px !important;
-  height: 300px !important;
-  min-width: 200px;
+  width: 200px;
+  height: 300px;
 }
 .events_card {
-  width: 200px !important;
-  height: 300px !important;
+  width: 200px;
+  height: 300px;
   min-width: 300px;
 }
 .character_card,
@@ -28,7 +25,7 @@
   &:hover .character_img {
     width: 110%;
     height: 110%;
-    z-index: 9;
+    z-index: 99999;
   }
 
   &:hover .character_img::after {
@@ -41,7 +38,7 @@
     bottom: 0;
     display: block;
     animation: character 0.5s backwards;
-    z-index: 9;
+    z-index: 99999;
   }
 }
 
@@ -92,6 +89,66 @@
   animation: character 0.5s backwards;
 }
 
+// events
+.eventsCard {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-color: rgba(128, 128, 128, 0.9);
+  transition: 0.5s;
+  cursor: pointer;
+  z-index: 4;
+  transform: skewX(-20deg);
+  &:hover {
+    z-index: 999;
+  }
+  &:hover .character_img::after {
+    width: 50%;
+  }
+  &:hover .character_img::before {
+    width: 50%;
+  }
+  &:hover .character_title {
+    bottom: 0;
+    display: block;
+    animation: character 0.5s backwards;
+    z-index: 9;
+  }
+}
+
+@media (max-width: 572px) {
+  .character_card {
+    width: 150px;
+    height: 200px;
+  }
+}
+@media (max-width: 472px) {
+  .comics_card {
+    width: 150px;
+    height: 250px;
+  }
+}
+@media (max-width: 372px) {
+  .character_card {
+    width: 100px;
+    height: 150px;
+  }
+  .comics_card {
+    width: 100px;
+    height: 200px;
+  }
+}
+@media (max-width: 272px) {
+  .character_card {
+    width: 100%;
+    height: 200px;
+  }
+  .comics_card {
+    width: 100%;
+    height: 350px;
+  }
+}
+
 @-webkit-keyframes character {
   from {
     bottom: -3rem;
@@ -109,32 +166,5 @@
 
   to {
     bottom: 0;
-  }
-}
-
-// events
-.eventsCard {
-  position: relative;
-  width: 150px;
-  height: 200px;
-  background-color: rgba(128, 128, 128, 0.493);
-  transition: 0.5s;
-  cursor: pointer;
-  z-index: 4;
-  transform: skewX(-20deg);
-  &:hover {
-    transform: skewX(-5deg);
-  }
-  &:hover .character_img::after {
-    width: 50%;
-  }
-  &:hover .character_img::before {
-    width: 50%;
-  }
-  &:hover .character_title {
-    bottom: 0;
-    display: block;
-    animation: character 0.5s backwards;
-    z-index: 9;
   }
 }

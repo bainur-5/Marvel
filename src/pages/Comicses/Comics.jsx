@@ -1,57 +1,77 @@
-import { useState } from 'react'
-import Character from '../../component/ui/card/Character'
-import Search from '../../component/ui/search/Search'
-import cls from './Characters.module.scss'
-import { useGetComicsAllQuery } from '../../Services/comicsServices'
-import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { comicsID } from '../../Redux/idSlice/idSlice'
+import { useState } from "react";
+import Character from "../../component/ui/card/Character";
+import Search from "../../component/ui/search/Search";
+import cls from "./Characters.module.scss";
+import { useGetComicsAllQuery } from "../../Services/comicsServices";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { comicsID } from "../../Redux/idSlice/idSlice";
+import { Loader } from "../../component/ui/load/Loader";
+import { ReactComponent as VectorIcon } from "../../assets/icon/Vector.svg";
+import { ReactComponent as NextIcon } from "../../assets/icon/Next.svg";    
 const Comics = () => {
-    const navigate = useNavigate()
-    const disptach = useDispatch()
-    const offset = 0
-    const [search, setSearch] = useState('')
-    const queryParameters = {
-        offset: offset
+  const navigate = useNavigate();
+  const disptach = useDispatch();
+  const [offset, setOffset] = useState(0);
+  const [search, setSearch] = useState("");
+  const queryParameters = {
+    offset: offset,
+  };
+  if (search !== "") {
+    queryParameters.search = search;
+  }
+  const { data } = useGetComicsAllQuery(queryParameters);
+  const onSearch = (e) => {
+    const value = e.target.value;
+    if (value !== "") {
+      setSearch(value);
+    } else {
+      setSearch(""); // Очистить поиск, если поле пустое
     }
-    if (search !== '') {
-        queryParameters.search = search;
+  };
+  const handlePrevClick = () => {
+    if (offset > 0) {
+      setOffset(offset - 20);
     }
-    const { data, } = useGetComicsAllQuery(queryParameters)
-    const onSearch = (e) => {
-        const value = e.target.value;
-        if (value !== '') {
-            setSearch(value);
-        } else {
-            setSearch
-            (''); // Очистить поиск, если поле пустое
-        }
-    };
-    
-    const click = (id) =>{
-        disptach(comicsID(id))
-        navigate('/onComics')
-    }
-    return (
-        <div className={cls.root}>
-            <div className={cls.search}>
-                <Search onChange={(e) => onSearch(e)} />
-            </div>
-            <div className={cls.contCards}>
-                {data ?
-                    data.map(item => (
-                        <Character
-                            id={item.id}
-                            img={`${item.thumbnail.path}.${item.thumbnail.extension}`}
-                            name={item.name || item.title || item.firstName}
-                            nameClass='comics_card'
-                            onClick={() => click(item.id)}
-                        />
-                    ))
-                    : ''
-                }
-            </div>
-        </div>
-    )
-}
-export default Comics
+  };
+  const handleNextClick = () => {
+    setOffset(offset + 20);
+  };
+
+  const click = (id) => {
+    disptach(comicsID(id));
+    navigate("/comic");
+  };
+  return (
+    <div className={cls.root}>
+      <div className={cls.search}>
+        <Search onChange={(e) => onSearch(e)} />
+      </div>
+      <div className={cls.contCards}>
+        {data ? (
+          data.map((item) => (
+            <Character
+              id={item.id}
+              img={`${item.thumbnail.path}.${item.thumbnail.extension}`}
+              name={item.name || item.title || item.firstName}
+              nameClass="comics_card"
+              onClick={() => click(item.id)}
+            />
+          ))
+        ) : (
+          <Loader />
+        )}
+      </div>
+      <div className={cls.pacination_part}>
+        <button onClick={handlePrevClick} className={cls.btn_prev}>
+          <VectorIcon className={cls.icon} />
+        </button>
+        <p>{offset / 20 + 1}</p>
+        <button onClick={handleNextClick} className={cls.btn_next}>
+          <NextIcon className={cls.icon} />
+        </button>
+      </div>
+    </div>
+  );
+};
+export default Comics;

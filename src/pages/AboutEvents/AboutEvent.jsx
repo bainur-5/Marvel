@@ -1,28 +1,26 @@
 import { useSelector } from "react-redux";
-import { useGetCharacterIDQuery } from "../../Services/characterServices";
-import cls from "./Character.module.scss";
+import cls from "./AboutEvent.module.scss";
 import { Loader } from "../../component/ui/load/Loader";
-import { useNavigate } from "react-router-dom";
+import { useGetEventsIDCardQuery } from "../../Services/eventsServices";
 import { useEffect } from "react";
-const Character = () => {
-  const id = useSelector((state) => state.idSlice.characterID);
-  const { data, isLoading } = useGetCharacterIDQuery({ characterID: id });
+import { useNavigate } from "react-router-dom";
+const AboutEvent = () => {
+  const id = useSelector((state) => state.idSlice.eventID);
+  const { data, isLoading } = useGetEventsIDCardQuery({ eventsID: id });
   const navigate = useNavigate();
   useEffect(() => {
     if (!id) {
-      navigate("/characters");
+      navigate("/events");
     }
   }, []);
   return (
     <div className={cls.root}>
       {isLoading ? (
-        <div className={cls.loader}>
-          <Loader />
-        </div>
+        <Loader />
       ) : (
         <div className={cls.content}>
           <div className={cls.about}>
-            <p className={cls.name}>{data.name}</p>
+            <p className={cls.name}>{data.title}</p>
             <p className={cls.description}>{data.description}</p>
             <div className={cls.section}>
               <p className={cls.title_section}>Series</p>
@@ -35,26 +33,30 @@ const Character = () => {
               </div>
             </div>
             <div className={cls.section}>
-              <p className={cls.title_section}>Comics</p>
+              <p className={cls.title_section}>Characters</p>
               <div className={cls.section_name_container}>
-                {data.comics.items.map((item) => (
-                  <p>{item.name}</p>
-                ))}
+                {data.characters.items.length > 0 ? (
+                  data.characters.items.map((item) => <p>{item.name}</p>)
+                ) : (
+                  <p>NO</p>
+                )}
               </div>
             </div>
             <div className={cls.section}>
-              <p className={cls.title_section}>Events</p>
+              <p className={cls.title_section}>Stories</p>
               <div className={cls.section_name_container}>
-                {data.events.items.map((item) => (
-                  <p>{item.name}</p>
-                ))}
+                {data.stories.items.length > 0 ? (
+                  data.stories.items.map((item) => <p>{item.name}</p>)
+                ) : (
+                  <p>NO</p>
+                )}
               </div>
             </div>
           </div>
           <div className={cls.picture}>
             <img
               src={`${data.thumbnail.path}.${data.thumbnail.extension}`}
-              alt=""
+              alt="art"
             />
           </div>
         </div>
@@ -62,4 +64,4 @@ const Character = () => {
     </div>
   );
 };
-export default Character;
+export default AboutEvent;

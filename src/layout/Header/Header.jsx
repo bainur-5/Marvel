@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import Logo from "../../assets/img/Logo.svg";
 import cls from "./Header.module.scss";
 
 const Header = () => {
@@ -7,7 +8,7 @@ const Header = () => {
       <ol className={cls.list}>
         <li>
           <NavLink className={cls.linkLogo} to={"/home"}>
-            <img src="Marvel_Logo.svg.png" alt="Logo" />
+            <img src={Logo} alt="Logo" />
           </NavLink>
         </li>
       </ol>

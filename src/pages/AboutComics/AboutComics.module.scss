@@ -1,54 +1,51 @@
-.root{
-    background-color: black;
+.root {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  .content {
+    width: 90%;
     display: flex;
-    justify-content: center;
-    min-height: 100vh;
-    .content{
-        width: 90%;
-        display: flex;
-        justify-content: space-between;
-        margin: 2rem 0;
-        .about{
-            color: white;
-            margin-right: 10px;
-            width: 50%;
-            p{
-                margin: 0;
-                padding: 0;
-            }
-            .name{
-                font-size: 4cap;
-                margin: 1cap 0;
-                
-            }
-            .description{
-                font-size: 2cap;
-            }
-            .section{
-                margin: 1rem 0;
-                .title_section{
-                    font-size: 3.5cap;
-                }
-                .section_name_container{
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    gap: 15px;
-                    flex-wrap: wrap;
-                    p{
-                        margin: 0;
-                        padding: 0;
-                    }
-                }
-            }
+    justify-content: space-between;
+    margin: 2rem 0;
+    .about {
+      color: white;
+      margin-right: 10px;
+      width: 50%;
+      p {
+        margin: 0;
+        padding: 0;
+      }
+      .name {
+        font-size: 4cap;
+        margin: 1cap 0;
+      }
+      .description {
+        font-size: 2cap;
+      }
+      .section {
+        margin: 1rem 0;
+        .title_section {
+          font-size: 3.5cap;
         }
-        .picture{
-            width: 50%;
-            height: 550px;
-            img{
-                width: 100%;
-                height: 100%;
-            }
+        .section_name_container {
+          display: flex;
+          gap: 15px;
+          flex-wrap: wrap;
+          p {
+            margin: 0;
+            padding: 0;
+          }
         }
+      }
     }
+    .picture {
+      width: 30%;
+      height: fit-content;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
 }

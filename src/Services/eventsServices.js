@@ -17,10 +17,24 @@ export const eventsServices = apiSlice.injectEndpoints({
             }),
             transformResponse: (res) => res.data.results,            
             providesTags: ['eventsServices'],
-        })
+        }),
+        getEventsIDCard: build.query({
+            query: ({ eventsID }) => ({
+              url: `events/${eventsID}`,
+              params: {
+                ts: 1,
+                apikey: publicKey,
+                hash: bashHash,
+              },
+            }),
+            transformResponse: (res) => res.data.results[0],
+            providesTags: ['eventsServices'],
+          }),
     })
 })
 
 export const {
-    useGetEventsAllQuery
+    useGetEventsAllQuery,
+    useGetEventsIDCardQuery,
+
 } = eventsServices
