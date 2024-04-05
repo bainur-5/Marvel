@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { comicsID } from "../../Redux/idSlice/idSlice";
 import { Loader } from "../../component/ui/load/Loader";
 import { ReactComponent as VectorIcon } from "../../assets/icon/Vector.svg";
-import { ReactComponent as NextIcon } from "../../assets/icon/Next.svg";    
+import { ReactComponent as NextIcon } from "../../assets/icon/Next.svg";
 const Comics = () => {
   const navigate = useNavigate();
   const disptach = useDispatch();
@@ -51,6 +51,7 @@ const Comics = () => {
         {data ? (
           data.map((item) => (
             <Character
+              key={item.id}
               id={item.id}
               img={`${item.thumbnail.path}.${item.thumbnail.extension}`}
               name={item.name || item.title || item.firstName}

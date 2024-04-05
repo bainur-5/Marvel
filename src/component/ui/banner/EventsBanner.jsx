@@ -4,6 +4,7 @@ import EventsBannerCard from "../card/EventsBannerCard";
 import cls from "./banner.module.scss";
 import { useNavigate } from "react-router-dom";
 import { eventID } from "../../../Redux/idSlice/idSlice";
+import React from "react";
 const EventsBanner = () => {
   const { data } = useGetEventsAllQuery({ offset: 0, limit: 5 });
   const navigate = useNavigate();
@@ -18,27 +19,25 @@ const EventsBanner = () => {
       <div className={cls.rootEvent}>
         <div className={cls.eventCards}>
           {data
-            ? data.map((item, i) =>
-                i % 2 ? (
-                  <>
-                    {EventsBannerCard({
-                      id: item.id,
-                      img: `${item.thumbnail.path}.${item.thumbnail.extension}`,
-                      name: item.name || item.title || item.firstName,
-                      onClick: () => navigateEventID(item.id),
-                    })}
-                  </>
-                ) : (
-                  <>
-                    {EventsBannerCard({
-                      id: item.id,
-                      img: `${item.thumbnail.path}.${item.thumbnail.extension}`,
-                      name: item.name || item.title || item.firstName,
-                      onClick: () => navigateEventID(item.id),
-                    })}
-                  </>
-                )
-              )
+            ? data.map((item, i) => (
+                <React.Fragment key={item.id}>
+                  {i % 2 ? (
+                    <EventsBannerCard
+                      id={item.id}
+                      img={`${item.thumbnail.path}.${item.thumbnail.extension}`}
+                      name={item.name || item.title || item.firstName}
+                      onClick={() => navigateEventID(item.id)}
+                    />
+                  ) : (
+                    <EventsBannerCard
+                      id={item.id}
+                      img={`${item.thumbnail.path}.${item.thumbnail.extension}`}
+                      name={item.name || item.title || item.firstName}
+                      onClick={() => navigateEventID(item.id)}
+                    />
+                  )}
+                </React.Fragment>
+              ))
             : ""}
         </div>
       </div>

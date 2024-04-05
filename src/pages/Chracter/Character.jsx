@@ -28,7 +28,7 @@ const Character = () => {
               <p className={cls.title_section}>Series</p>
               <div className={cls.section_name_container}>
                 {data.series.items.length > 0 ? (
-                  data.series.items.map((item) => <p>{item.name}</p>)
+                  data.series.items.map((item, i) => <p key={i}>{item.name}</p>)
                 ) : (
                   <p>NO</p>
                 )}
@@ -37,16 +37,16 @@ const Character = () => {
             <div className={cls.section}>
               <p className={cls.title_section}>Comics</p>
               <div className={cls.section_name_container}>
-                {data.comics.items.map((item) => (
-                  <p>{item.name}</p>
+                {data.comics.items.map((item, i) => (
+                  <p key={i}>{item.name}</p>
                 ))}
               </div>
             </div>
             <div className={cls.section}>
               <p className={cls.title_section}>Events</p>
               <div className={cls.section_name_container}>
-                {data.events.items.map((item) => (
-                  <p>{item.name}</p>
+                {data.events.items.map((item, i) => (
+                  <p key={i}>{item.name}</p>
                 ))}
               </div>
             </div>

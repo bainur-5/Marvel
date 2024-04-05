@@ -19,29 +19,29 @@ const Header = () => {
         </button>
         <ol className={`${cls.list_logo}`}>
           <li>
-            <NavLink className={cls.linkLogo} to={"/home"}>
+            <NavLink className={cls.linkLogo} exact="true" to={"/home"}>
               <img src={Logo} alt="Logo" />
             </NavLink>
           </li>
         </ol>
         <ul className={`${cls.list_menu} ${isMenuOpen ? cls.open : ""}`}>
           <li>
-            <NavLink className={cls.link} exact to={"/home"}>
+            <NavLink className={cls.link}  exact="true" to={"/home"}>
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink className={cls.link} to={"/characters"}>
+            <NavLink className={cls.link} exact="true" to={"/characters"}>
               Characters
             </NavLink>
           </li>
           <li>
-            <NavLink className={cls.link} to={"/comics"}>
+            <NavLink className={cls.link} to={"/comics"} exact="true">
               Comics
             </NavLink>
           </li>
           <li>
-            <NavLink className={cls.link} to={"/events"}>
+            <NavLink className={cls.link} to={"/events"} exact="true">
               Events
             </NavLink>
           </li>

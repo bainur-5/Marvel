@@ -26,7 +26,7 @@ const AboutEvent = () => {
               <p className={cls.title_section}>Series</p>
               <div className={cls.section_name_container}>
                 {data.series.items.length > 0 ? (
-                  data.series.items.map((item) => <p>{item.name}</p>)
+                  data.series.items.map((item, i) => <p key={i}>{item.name}</p>)
                 ) : (
                   <p>NO</p>
                 )}
@@ -36,7 +36,7 @@ const AboutEvent = () => {
               <p className={cls.title_section}>Characters</p>
               <div className={cls.section_name_container}>
                 {data.characters.items.length > 0 ? (
-                  data.characters.items.map((item) => <p>{item.name}</p>)
+                  data.characters.items.map((item, i) => <p key={i}>{item.name}</p>)
                 ) : (
                   <p>NO</p>
                 )}
@@ -46,7 +46,7 @@ const AboutEvent = () => {
               <p className={cls.title_section}>Stories</p>
               <div className={cls.section_name_container}>
                 {data.stories.items.length > 0 ? (
-                  data.stories.items.map((item) => <p>{item.name}</p>)
+                  data.stories.items.map((item, i) => <p key={i}>{item.name}</p>)
                 ) : (
                   <p>NO</p>
                 )}

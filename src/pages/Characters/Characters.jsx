@@ -51,6 +51,7 @@ const Characters = () => {
         {data ? (
           data.map((item) => (
             <Character
+              key={item.id}
               id={item.id}
               img={`${item.thumbnail.path}.${item.thumbnail.extension}`}
               name={item.name || item.title || item.firstName}

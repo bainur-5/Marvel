@@ -40,6 +40,7 @@ const ComicsBanner = () => {
                     backgroundRepeat: "no-repeat",
                   }}
                   onClick={() => handleCardClick(item.id)}
+                  key={item.id}
                 ></div>
               ))
             : ""}
