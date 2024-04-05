@@ -5,7 +5,7 @@
   margin: 0 auto;
   .contText {
     width: 100%;
-    text-align: end;
+    text-align: flex-end;
     padding-right: 10px;
 
     button {
@@ -25,7 +25,7 @@
     margin-bottom: 4rem;
     display: flex;
     align-items: top;
-    justify-content: start;
+    justify-content: flex-start;
     gap: 20px;
     overflow-x: visible;
     overflow-y: hidden;
