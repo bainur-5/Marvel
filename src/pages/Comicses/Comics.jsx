@@ -18,7 +18,9 @@ const Comics = () => {
     offset: offset,
   };
   if (search !== "") {
-    queryParameters.search = search;
+    queryParameters.searchString = search;
+    queryParameters.limit = 100;
+    queryParameters.offset = 0
   }
   const { data } = useGetComicsAllQuery(queryParameters);
   const onSearch = (e) => {

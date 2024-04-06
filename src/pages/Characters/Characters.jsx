@@ -20,6 +20,8 @@ const Characters = () => {
   };
   if (search !== "") {
     queryParameters.searchString = search;
+    queryParameters.limit = 100;
+    queryParameters.offset = 0
   }
   const { data } = useGetCharacterAllQuery(queryParameters);
   const onSearch = (e) => {
